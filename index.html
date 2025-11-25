@@ -804,48 +804,104 @@
             color: #bbb;
         }
         
-        /* Contenedor del slider: altura automática */
-.testimonial-slider {
-    max-width: 800px;
-    margin: 50px auto 0;
-    position: relative;
-    min-height: 280px; /* asegura espacio mínimo */
-    height: auto;      /* permite crecer según cada testimonio */
-}
-
-/* Cada testimonio */
-.testimonial {
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    border: 1px solid #222;
-    
-    /* CAMBIO GRANDE: ya NO absolute */
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    opacity: 0;
-    transform: translateX(50px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-    
-    /* NUEVO: evita que los demás queden interactuables */
-    pointer-events: none;
-}
-
-/* Testimonio visible */
-.testimonial.active {
-    opacity: 1;
-    transform: translateX(0);
-    z-index: 2;
-    pointer-events: auto;
-    
-    /* IMPORTANTE: ajusta el contenedor al tamaño del contenido */
-    position: relative;
-}
-
+        /* Testimonios - MEJORADO LEGIBILIDAD */
+        .testimonials {
+            background-color: rgba(17, 17, 17, 0.8);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonials h2 {
+            color: #00e5ff;
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 50px auto 0;
+            position: relative;
+            height: 300px;
+        }
+        
+        .testimonial {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border: 1px solid #222;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .testimonial.active {
+            opacity: 1;
+            transform: translateX(0);
+            z-index: 2;
+        }
+        
+        .testimonial:before {
+            content: """;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 4rem;
+            color: #00e5ff;
+            opacity: 0.3;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #fff; /* Cambiado a blanco para mejor legibilidad */
+            position: relative;
+            z-index: 1;
+            font-size: 1.2rem; /* Tamaño de fuente aumentado */
+            line-height: 1.8;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8); /* Sombra para mejor contraste */
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: #00e5ff;
+            font-size: 1.2rem; /* Tamaño de fuente aumentado */
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8); /* Sombra para mejor contraste */
+        }
+        
+        .testimonial-role {
+            color: #ddd; /* Color más claro para mejor legibilidad */
+            font-size: 1rem; /* Tamaño de fuente aumentado */
+            margin-top: 5px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8); /* Sombra para mejor contraste */
+        }
+        
+        /* Indicadores de testimonios */
+        .testimonial-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .indicator.active {
+            background-color: #00e5ff;
+            box-shadow: 0 0 10px #00e5ff;
+            transform: scale(1.2);
+        }
         
         /* Redes Sociales Laterales */
         .social-sidebar {
