@@ -768,9 +768,19 @@
     border-radius: 10px; /* mismo radio que la imagen */
     display: inline-block;
 }
+.about-image {
+    overflow: hidden;
+    border-radius: 10px;           /* Borde adaptado */
+    display: flex;                 /* Centra la imagen */
+    justify-content: center;       
+    align-items: center;
+    width: 100%;
+    max-width: 500px;              /* Tamaño máximo */
+    margin: 0 auto;                /* Centrado horizontal */
+}
+
 .neumann-img {
     width: 100%;
-    max-width: 500px;
     border-radius: 10px;
     transition: transform 0.5s;
 }
@@ -778,6 +788,7 @@
 .about-image:hover .neumann-img {
     transform: scale(1.05);
 }
+
 
         
         .about-content {
