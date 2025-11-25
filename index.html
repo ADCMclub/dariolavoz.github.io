@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dario LA Voz - Comunicaciones de Impacto</title>
-    <link rel="icon" type="image/jpg" href="dariolavoz.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Estilos generales */
@@ -390,45 +389,42 @@
             margin-right: auto;
         }
         
-        .demo-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 32px;
-            background: linear-gradient(135deg, #00e5ff, #00a8ff);
-            color: #000;
-            border-radius: 50px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 5px 15px rgba(0, 229, 255, 0.4);
-            transition: all 0.3s ease;
-            position: relative;
+        .soundcloud-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .soundcloud-item {
+            background-color: rgba(17, 17, 17, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s ease;
+            border: 1px solid #222;
+        }
+        
+        .soundcloud-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 229, 255, 0.3);
+        }
+        
+        .soundcloud-iframe {
+            margin: 0 auto;
+            border-radius: 10px;
             overflow: hidden;
-            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
         
-        .demo-btn:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.7s;
+        .demo-title {
+            color: #00e5ff;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-transform: uppercase;
         }
         
-        .demo-btn:hover:before {
-            left: 100%;
-        }
-        
-        .demo-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 229, 255, 0.6);
-        }
-        
-        /* Servicios - 4 Módulos */
+        /* Servicios */
         .services {
             background-color: rgba(17, 17, 17, 0.8);
             position: relative;
@@ -457,7 +453,7 @@
         
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 50px;
             position: relative;
@@ -687,150 +683,12 @@
             font-size: 1.2rem;
         }
         
-        .podcast-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            position: relative;
+        /* Iframe del Podcast */
+        .podcast-iframe {
+            margin: 30px 0;
+            border-radius: 10px;
             overflow: hidden;
-        }
-        
-        .mano-a-mano .podcast-btn {
-            background: linear-gradient(135deg, #00e5ff, #00a8ff);
-            box-shadow: 0 5px 15px rgba(0, 229, 255, 0.4);
-            color: #000;
-        }
-        
-        .entretelones .podcast-btn {
-            background: linear-gradient(135deg, #ff0080, #c4006a);
-            box-shadow: 0 5px 15px rgba(255, 0, 128, 0.4);
-            color: white;
-        }
-        
-        .podcast-btn:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.7s;
-        }
-        
-        .podcast-btn:hover:before {
-            left: 100%;
-        }
-        
-        .podcast-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-        }
-        
-        /* Testimonios Mejorados */
-        .testimonials {
-            background-color: rgba(17, 17, 17, 0.9);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .testimonials h2 {
-            color: #00e5ff;
-            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
-        }
-        
-        .testimonial-slider {
-            max-width: 800px;
-            margin: 50px auto 0;
-            position: relative;
-            height: 320px;
-        }
-        
-        .testimonial {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(30, 30, 30, 0.9));
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 229, 255, 0.2);
-            border: 1px solid #333;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            opacity: 0;
-            transform: translateX(50px);
-            transition: all 0.8s ease;
-        }
-        
-        .testimonial.active {
-            opacity: 1;
-            transform: translateX(0);
-            z-index: 2;
-        }
-        
-        .testimonial:before {
-            content: """;
-            position: absolute;
-            top: 15px;
-            left: 25px;
-            font-size: 5rem;
-            color: #00e5ff;
-            opacity: 0.2;
-            font-family: Georgia, serif;
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 25px;
-            color: #f0f0f0;
-            position: relative;
-            z-index: 1;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-        }
-        
-        .testimonial-author {
-            font-weight: bold;
-            color: #00e5ff;
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-            text-shadow: 0 0 5px rgba(0, 229, 255, 0.3);
-        }
-        
-        .testimonial-role {
-            color: #bbb;
-            font-size: 1rem;
-            margin-top: 5px;
-        }
-        
-        /* Indicadores de testimonios */
-        .testimonial-indicators {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 40px;
-        }
-        
-        .indicator {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background-color: #333;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .indicator.active {
-            background-color: #00e5ff;
-            box-shadow: 0 0 10px #00e5ff;
-            transform: scale(1.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
         
         /* Efectos de neón adicionales */
@@ -929,6 +787,105 @@
             color: #bbb;
         }
         
+        /* Testimonios - MEJORADO LEGIBILIDAD */
+        .testimonials {
+            background-color: rgba(17, 17, 17, 0.8);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonials h2 {
+            color: #00e5ff;
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 50px auto 0;
+            position: relative;
+            height: 300px;
+        }
+        
+        .testimonial {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border: 1px solid #222;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .testimonial.active {
+            opacity: 1;
+            transform: translateX(0);
+            z-index: 2;
+        }
+        
+        .testimonial:before {
+            content: """;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 4rem;
+            color: #00e5ff;
+            opacity: 0.3;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #fff; /* Cambiado a blanco para mejor legibilidad */
+            position: relative;
+            z-index: 1;
+            font-size: 1.2rem; /* Tamaño de fuente aumentado */
+            line-height: 1.8;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8); /* Sombra para mejor contraste */
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: #00e5ff;
+            font-size: 1.2rem; /* Tamaño de fuente aumentado */
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8); /* Sombra para mejor contraste */
+        }
+        
+        .testimonial-role {
+            color: #ddd; /* Color más claro para mejor legibilidad */
+            font-size: 1rem; /* Tamaño de fuente aumentado */
+            margin-top: 5px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8); /* Sombra para mejor contraste */
+        }
+        
+        /* Indicadores de testimonios */
+        .testimonial-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .indicator.active {
+            background-color: #00e5ff;
+            box-shadow: 0 0 10px #00e5ff;
+            transform: scale(1.2);
+        }
+        
         /* Redes Sociales Laterales */
         .social-sidebar {
             position: fixed;
@@ -993,6 +950,7 @@
             background: linear-gradient(45deg, #000000, #25f4ee, #fe2c55);
             box-shadow: 0 4px 15px rgba(37, 244, 238, 0.4);
         }
+        
         .twitter {
             background: linear-gradient(45deg, #1DA1F2, #0d8bd9);
             box-shadow: 0 4px 15px rgba(29, 161, 242, 0.4);
@@ -1101,7 +1059,7 @@
             }
             
             .testimonial-slider {
-                height: 380px;
+                height: 350px;
             }
             
             .social-sidebar {
@@ -1120,7 +1078,7 @@
                 font-size: 1.7rem;
             }
             
-            .services-grid {
+            .soundcloud-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -1167,157 +1125,248 @@
         </a>
     </div>
 
-    <!-- Sección Hero -->
-    <section id="inicio" class="hero">
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Dario <span>LA Voz</span></h1>
-                    <p>Comunicaciones de Impacto para tu Marca. Locución profesional, producción de podcasts y estrategias de comunicación que conectan con tu audiencia.</p>
+                    <h1>Dario <span>LA Voz</span><br>Que Marca La Diferencia</h1>
+                    <p>Comunicación de impacto para marcas y proyectos que buscan destacar. Creamos conexiones auténticas con tu audiencia a través de una voz profesional y versátil.</p>
+                    <p>Con más de 10 años de experiencia en locución y producción de audio, ofrezco soluciones personalizadas para cada proyecto.</p>
+                    
+                    <!-- Botón de Radio Interactivo Mejorado -->
                     <a href="https://rdcrsound.adcm.club/" class="radio-btn" target="_blank">
-                        <i class="fas fa-play-circle"></i>
-                        Escuchar Radio en Vivo
+                        <i class="fas fa-broadcast-tower"></i>
+                        <span>ESCUCHA RDCR RADIOS</span>
                     </a>
                 </div>
                 <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Micrófono profesional" class="microphone-img">
+                    <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Micrófono condensador profesional" class="microphone-img">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección de Servicios -->
-    <section id="servicios" class="services">
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/593961480654" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Servicios -->
+    <section class="services" id="servicios">
         <div class="container">
-            <h2>Servicios Profesionales</h2>
+            <h2>Nuestros Servicios</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-microphone-alt"></i>
+                        <i class="fas fa-microphone"></i>
                     </div>
-                    <h3>Locución Profesional</h3>
-                    <p>Voz para comerciales, videos corporativos, e-learning, audioguías y más. Calidad de estudio profesional.</p>
+                    <div class="neon-border">
+                        <h3>Locución Profesional</h3>
+                    </div>
+                    <p>Voz versátil y carismática para comerciales, audiovisuales, podcasts y contenido digital de alto impacto.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-podcast"></i>
+                        <i class="fas fa-headphones"></i>
                     </div>
-                    <h3>Producción de Podcasts</h3>
-                    <p>Creación, edición y distribución de podcasts. Desde la idea hasta las plataformas de streaming.</p>
+                    <div class="neon-border">
+                        <h3>Producción de Audio</h3>
+                    </div>
+                    <p>Grabación y edición profesional de audio para garantizar la mejor calidad en cada proyecto.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-broadcast-tower"></i>
                     </div>
-                    <h3>Radio Online</h3>
-                    <p>Transmisión en vivo las 24 horas. Programación musical y segmentos especializados para tu audiencia.</p>
+                    <div class="neon-border">
+                        <h3>Voice Over</h3>
+                    </div>
+                    <p>Narraciones para documentales, corporativos, e-learning y todo tipo de proyectos audiovisuales.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-comments"></i>
+                        <i class="fas fa-podcast"></i>
                     </div>
-                    <h3>Asesoría en Comunicación</h3>
-                    <p>Estrategias de comunicación efectivas para marcas y personalidades. Desarrollo de identidad vocal.</p>
+                    <div class="neon-border">
+                        <h3>Asesoría en Comunicación</h3>
+                    </div>
+                    <p>Consultoría especializada para optimizar la comunicación vocal de tu marca o proyecto.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección de Demos -->
-    <section id="demos" class="demos">
+    <!-- Sección de Demos SoundCloud -->
+    <section class="demos" id="demos">
         <div class="container">
-            <h2>Demos y Trabajos</h2>
-            <p class="demo-subtitle">Escucha muestras de mi trabajo en locución y producción. Diferentes estilos y tonos para diversas necesidades.</p>
-            <a href="https://soundcloud.com/rdcrlaproductora" class="demo-btn" target="_blank">
-                <i class="fab fa-soundcloud"></i>
-                Escuchar Demos en SoundCloud
-            </a>
+            <h2>Escucha Mis Demos</h2>
+            <p class="demo-subtitle">Una muestra de mi trabajo en locución profesional. Descubre la calidad y versatilidad de mi voz.</p>
+            
+            <!-- Grid de Demos SoundCloud -->
+            <div class="soundcloud-grid">
+                <div class="soundcloud-item">
+                    <h3 class="demo-title">COCA COLA</h3>
+                    <div class="soundcloud-iframe">
+                        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2217105932&color=%231d161a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+                        <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
+                            <a href="https://soundcloud.com/rdcrlaproductora" title="RDCR SOUND" target="_blank" style="color: #cccccc; text-decoration: none;">RDCR SOUND</a> · 
+                            <a href="https://soundcloud.com/rdcrlaproductora/coca-cola" title="COCA COLA" target="_blank" style="color: #cccccc; text-decoration: none;">COCA COLA</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="soundcloud-item">
+                    <h3 class="demo-title">MARLBORO</h3>
+                    <div class="soundcloud-iframe">
+                        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2216949704&color=%231d161a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+                        <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
+                            <a href="https://soundcloud.com/rdcrlaproductora" title="RDCR SOUND" target="_blank" style="color: #cccccc; text-decoration: none;">RDCR SOUND</a> · 
+                            <a href="https://soundcloud.com/rdcrlaproductora/marlboro" title="Marlboro" target="_blank" style="color: #cccccc; text-decoration: none;">Marlboro</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="soundcloud-item">
+                    <h3 class="demo-title">PROMO RDCR FERIADO</h3>
+                    <div class="soundcloud-iframe">
+                        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2204159855&color=%231d161a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+                        <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
+                            <a href="https://soundcloud.com/rdcrlaproductora" title="RDCR SOUND" target="_blank" style="color: #cccccc; text-decoration: none;">RDCR SOUND</a> · 
+                            <a href="https://soundcloud.com/rdcrlaproductora/rdcr-sound_promo-rdcr-feriado_9-7" title="RDCR SOUND_PROMO RDCR FERIADO_9" target="_blank" style="color: #cccccc; text-decoration: none;">RDCR SOUND_PROMO RDCR FERIADO_9</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="soundcloud-item">
+                    <h3 class="demo-title">DJ INFIERNO</h3>
+                    <div class="soundcloud-iframe">
+                        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2196632947&color=%231d161a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+                        <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
+                            <a href="https://soundcloud.com/rdcrlaproductora" title="RDCR SOUND" target="_blank" style="color: #cccccc; text-decoration: none;">RDCR SOUND</a> · 
+                            <a href="https://soundcloud.com/rdcrlaproductora/dj-infierno" title="Dj infierno" target="_blank" style="color: #cccccc; text-decoration: none;">Dj infierno</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="soundcloud-item">
+                    <h3 class="demo-title">DC NOTICIAS EXPRESS</h3>
+                    <div class="soundcloud-iframe">
+                        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2196630071&color=%231d161a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+                        <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
+                            <a href="https://soundcloud.com/rdcrlaproductora" title="RDCR SOUND" target="_blank" style="color: #cccccc; text-decoration: none;">RDCR SOUND</a> · 
+                            <a href="https://soundcloud.com/rdcrlaproductora/dc-noticias-express-3-3" title="DC NOTICIAS EXPRESS 3" target="_blank" style="color: #cccccc; text-decoration: none;">DC NOTICIAS EXPRESS 3</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Sección de Podcasts -->
-    <section id="podcasts" class="podcasts">
+    <section class="podcasts" id="podcasts">
         <div class="container">
-            <h2>Nuestros Podcasts</h2>
-            <p class="podcast-subtitle">Programas especializados que informan, entretienen y conectan con audiencias específicas.</p>
+            <h2>Mis Podcasts</h2>
+            <p class="podcast-subtitle">Programas exclusivos donde exploramos diferentes temas con conversaciones profundas y entretenidas</p>
             
             <div class="podcasts-grid">
                 <div class="podcast-card mano-a-mano">
-                    <i class="fas fa-handshake podcast-icon"></i>
-                    <h3>Mano a Mano</h3>
-                    <p class="podcast-description">Conversaciones profundas con personalidades influyentes. Un espacio para conocer las historias detrás del éxito.</p>
+                    <i class="fas fa-hands-helping podcast-icon"></i>
+                    <h3>MANO A MANO CON DARIO</h3>
+                    <p class="podcast-description">
+                        Un espacio íntimo de conversaciones profundas donde Dario se sienta con invitados especiales 
+                        para explorar historias de vida, experiencias profesionales y reflexiones que inspiran.
+                    </p>
+                    
+                    <!-- Iframe del Podcast Mano a Mano -->
+                    <div class="podcast-iframe">
+                        <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.podcasts.apple.com/ec/podcast/mano-a-mano-con-dar%C3%ADo/id1819685664"></iframe>
+                    </div>
+                    
                     <ul class="podcast-features">
-                        <li>Entrevistas exclusivas</li>
-                        <li>Historias de vida inspiradoras</li>
-                        <li>Análisis de trayectorias profesionales</li>
-                        <li>Consejos para el crecimiento personal</li>
+                        <li>Entrevistas exclusivas con personalidades influyentes</li>
+                        <li>Conversaciones profundas y auténticas</li>
+                        <li>Temas variados: negocios, vida, superación personal</li>
+                        <li>Episodios semanales de 45-60 minutos</li>
                     </ul>
-                    <a href="https://podcasts.apple.com/ec/podcast/mano-a-mano-con-dar%C3%ADo/id1819685664" class="podcast-btn" target="_blank">
-                        <i class="fas fa-headphones"></i>
-                        Escuchar Episodios
-                    </a>
                 </div>
                 
                 <div class="podcast-card entretelones">
                     <i class="fas fa-theater-masks podcast-icon"></i>
-                    <h3>Entretelones</h3>
-                    <p class="podcast-description">El detrás de escena del mundo del espectáculo, la cultura y los medios. Análisis y noticias del entretenimiento.</p>
+                    <h3>ENTRETELONES</h3>
+                    <p class="podcast-description">
+                        Descubre lo que hay detrás de cámaras en el mundo del entretenimiento, la locución 
+                        y los medios. Anécdotas, secretos del oficio y análisis del mundo mediático actual.
+                    </p>
+                    
+                    <!-- Iframe del Podcast Entretelones -->
+                    <div class="podcast-iframe">
+                        <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.podcasts.apple.com/ec/podcast/entretelones-radio-show-podcast/id1819687775"></iframe>
+                    </div>
+                    
                     <ul class="podcast-features">
-                        <li>Noticias de espectáculos</li>
-                        <li>Análisis de tendencias culturales</li>
-                        <li>Reportajes exclusivos</li>
-                        <li>Críticas y recomendaciones</li>
+                        <li>Detrás de cámaras de la industria del entretenimiento</li>
+                        <li>Anécdotas y experiencias en medios de comunicación</li>
+                        <li>Análisis de tendencias en comunicación y locución</li>
+                        <li>Episodios quincenales de 30-45 minutos</li>
                     </ul>
-                    <a href="https://podcasts.apple.com/ec/podcast/entretelones-radio-show-podcast/id1819687775" class="podcast-btn" target="_blank">
-                        <i class="fas fa-headphones"></i>
-                        Escuchar Episodios
-                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección Sobre Nosotros -->
-    <section id="nosotros" class="about">
+    <!-- Sobre Nosotros -->
+    <section class="about" id="nosotros">
         <div class="container">
             <div class="about-content">
                 <h2>Sobre Dario LA Voz</h2>
-                <p>Con más de 15 años de experiencia en el mundo de la locución y la comunicación, Dario se ha consolidado como una voz confiable y versátil en la industria.</p>
-                <p>Su trayectoria incluye trabajos para importantes marcas, producción de contenidos para radio y podcasts, y asesoría en estrategias de comunicación para empresas y personalidades.</p>
-                <p>Utilizando equipos profesionales de última generación, incluyendo micrófonos Neumann, garantiza la más alta calidad en cada proyecto.</p>
-                <a href="#" class="btn">Conoce Más</a>
+                <p>Con más de una década de experiencia en el mundo de la locución, Dario se ha consolidado como una voz reconocida y versátil en la industria. Su capacidad para adaptarse a diferentes estilos y proyectos lo ha convertido en la elección preferida de marcas nacionales e internacionales.</p>
+                <p>Creemos en el poder transformador de una voz auténtica. Cada proyecto es una oportunidad para crear conexiones emocionales que perduren en la memoria del público.</p>
+                <p>Nuestra misión es llevar tu mensaje más allá de las palabras, imprimiendo carácter, emoción y profesionalismo en cada grabación.</p>
             </div>
             <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1563089145-599997674d42?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Micrófono Neumann" class="neumann-img">
+                <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Micrófono condensador profesional" class="neumann-img">
             </div>
         </div>
     </section>
 
-    <!-- Sección de Testimonios -->
-    <section id="testimonios" class="testimonials">
+    <!-- Testimonios -->
+    <section class="testimonials" id="testimonios">
         <div class="container">
-            <h2>Testimonios</h2>
+            <h2>Lo Que Dicen Nuestros Clientes</h2>
             <div class="testimonial-slider">
                 <div class="testimonial active">
-                    <p class="testimonial-text">Trabajar con Dario fue una experiencia excepcional. Su voz le dio el carácter perfecto a nuestra campaña publicitaria y los resultados superaron nuestras expectativas.</p>
-                    <p class="testimonial-author">María González</p>
-                    <p class="testimonial-role">Directora de Marketing, TechSolutions</p>
-                </div>
-                <div class="testimonial">
-                    <p class="testimonial-text">La producción de nuestro podcast con Dario fue impecable. No solo tiene una voz increíble, sino que su conocimiento técnico y creativo agregó un valor invaluable a nuestro proyecto.</p>
-                    <p class="testimonial-author">Carlos Rodríguez</p>
-                    <p class="testimonial-role">Productor de Contenidos, MediaLab</p>
-                </div>
-                <div class="testimonial">
-                    <p class="testimonial-text">Dario tiene la capacidad de capturar la esencia de una marca y transmitirla a través de su voz. Su profesionalismo y talento son incomparables en la industria.</p>
+                    <p class="testimonial-text">"La calidad de locución de Dario transformó completamente nuestro comercial de radio. Su voz capturó exactamente la esencia de nuestra marca y generó un aumento del 30% en engagement con nuestra audiencia."</p>
                     <p class="testimonial-author">Ana Martínez</p>
-                    <p class="testimonial-role">CEO, BrandVoice Agency</p>
+                    <p class="testimonial-role">Directora de Marketing, Brand Solutions</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"El servicio de producción de audio de Dario es excepcional. Nos entregó un sonido profesional que elevó la calidad de nuestro podcast corporativo. Su atención al detalle es impresionante."</p>
+                    <p class="testimonial-author">Carlos Rodríguez</p>
+                    <p class="testimonial-role">Productor Ejecutivo, MediaPro</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Contratamos a Dario para el voice over de nuestro curso e-learning y los resultados superaron expectativas. Su dicción perfecta y tono adecuado hicieron que el contenido fuera mucho más comprensible."</p>
+                    <p class="testimonial-author">María González</p>
+                    <p class="testimonial-role">Directora de Contenidos, EducaTech</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"La asesoría en comunicación que nos brindó Dario fue fundamental para redefinir nuestra identidad vocal. Ahora tenemos una estrategia clara que refleja perfectamente los valores de nuestra empresa."</p>
+                    <p class="testimonial-author">Roberto Silva</p>
+                    <p class="testimonial-role">Gerente de Marca, Innovate Corp</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Trabajar con Dario en nuestro proyecto de locución para redes sociales fue una experiencia increíble. Su versatilidad nos permitió crear contenido diverso manteniendo coherencia en nuestra comunicación."</p>
+                    <p class="testimonial-author">Laura Mendoza</p>
+                    <p class="testimonial-role">Social Media Manager, Digital Boost</p>
                 </div>
             </div>
             <div class="testimonial-indicators">
-                <div class="indicator active"></div>
-                <div class="indicator"></div>
-                <div class="indicator"></div>
+                <div class="indicator active" data-index="0"></div>
+                <div class="indicator" data-index="1"></div>
+                <div class="indicator" data-index="2"></div>
+                <div class="indicator" data-index="3"></div>
+                <div class="indicator" data-index="4"></div>
             </div>
         </div>
     </section>
@@ -1328,116 +1377,208 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>Dario LA Voz</h3>
-                    <p>Comunicaciones de impacto para marcas y proyectos. Locución profesional, producción de podcasts y estrategias de comunicación.</p>
+                    <p>La voz que marca la diferencia en cada proyecto. Locución profesional con más de 10 años de experiencia.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/rdcdrsound" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/DCradioEc" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/rdcrsound?igsh=bDd5Z2t6ZG56cDRi" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UC72BgWxDVoZxnS80l6x-Urw" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#demos">Demos</a></li>
+                        <li><a href="#podcasts">Podcasts</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
+                    </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Servicios</h3>
                     <ul>
                         <li><a href="#">Locución Profesional</a></li>
-                        <li><a href="#">Producción de Podcasts</a></li>
-                        <li><a href="#">Radio Online</a></li>
+                        <li><a href="#">Producción de Audio</a></li>
+                        <li><a href="#">Voice Over</a></li>
                         <li><a href="#">Asesoría en Comunicación</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Contacto</h3>
                     <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Ibarra - Ecuador</li>
+                        <li><i class="fas fa-phone"></i> +593-96-148-0654</li>
                         <li><i class="fas fa-envelope"></i> rdcrsound@gmail.com</li>
-                        <li><i class="fas fa-phone"></i> +593 96 148 0654</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Quito, Ecuador</li>
+                        <li><i class="fas fa-clock"></i> Lun-Vie: 9:00-18:00</li>
                     </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Síguenos</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Dario LA Voz. Todos los derechos reservados.</p>
+                <p>&copy; 2023 Dario LA Voz. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Botón de WhatsApp CORREGIDO -->
-    <a href="https://wa.me/593961480654?text=Hola%20Dario,%20me%20interesan%20tus%20servicios%20de%20locución" class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
     <script>
+        // Crear líneas azules animadas en el fondo
+        function createAnimatedLines() {
+            const background = document.getElementById('animatedBackground');
+            const lineCount = 15;
+            
+            for (let i = 0; i < lineCount; i++) {
+                const line = document.createElement('div');
+                line.classList.add('line');
+                
+                // Posición aleatoria
+                const top = Math.random() * 100;
+                const height = Math.random() * 3 + 1;
+                const delay = Math.random() * 15;
+                const duration = Math.random() * 10 + 10;
+                
+                line.style.top = `${top}%`;
+                line.style.height = `${height}px`;
+                line.style.animationDelay = `${delay}s`;
+                line.style.animationDuration = `${duration}s`;
+                
+                background.appendChild(line);
+            }
+        }
+        
         // Menú móvil
         document.querySelector('.mobile-menu').addEventListener('click', function() {
             document.querySelector('nav').classList.toggle('active');
         });
-
-        // Fondo animado con líneas
-        const background = document.getElementById('animatedBackground');
-        for (let i = 0; i < 20; i++) {
-            const line = document.createElement('div');
-            line.classList.add('line');
-            line.style.width = Math.random() * 100 + 50 + 'px';
-            line.style.height = '1px';
-            line.style.top = Math.random() * 100 + '%';
-            line.style.left = Math.random() * 100 + '%';
-            line.style.animationDelay = Math.random() * 15 + 's';
-            line.style.animationDuration = (Math.random() * 10 + 10) + 's';
-            background.appendChild(line);
-        }
-
-        // Carrusel de testimonios
-        let currentTestimonial = 0;
-        const testimonials = document.querySelectorAll('.testimonial');
-        const indicators = document.querySelectorAll('.indicator');
         
-        function showTestimonial(index) {
-            testimonials.forEach(testimonial => {
-                testimonial.classList.remove('active');
-            });
-            indicators.forEach(indicator => {
-                indicator.classList.remove('active');
-            });
-            
-            testimonials[index].classList.add('active');
-            indicators[index].classList.add('active');
-            currentTestimonial = index;
-        }
-        
-        // Cambiar testimonio cada 5 segundos
-        setInterval(() => {
-            let nextTestimonial = (currentTestimonial + 1) % testimonials.length;
-            showTestimonial(nextTestimonial);
-        }, 5000);
-        
-        // Indicadores clickeables
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-                showTestimonial(index);
-            });
-        });
-
-        // Smooth scroll para enlaces de navegación
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+        // Smooth scroll para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
+                
                 const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
+                if(targetId === '#') return;
                 
-                window.scrollTo({
-                    top: targetSection.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-                
-                // Cerrar menú móvil si está abierto
-                if (window.innerWidth <= 768) {
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Cerrar menú móvil si está abierto
                     document.querySelector('nav').classList.remove('active');
                 }
             });
         });
+        
+        // Efecto de aparición al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Aplicar efecto a elementos
+        document.querySelectorAll('.service-card, .about-content, .about-image, .testimonial, .podcast-card, .soundcloud-item').forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+        
+        // Sistema de testimonios rotativos
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial');
+        const indicators = document.querySelectorAll('.indicator');
+        const totalTestimonials = testimonials.length;
+        
+        function showTestimonial(index) {
+            // Ocultar todos los testimonios
+            testimonials.forEach(testimonial => {
+                testimonial.classList.remove('active');
+            });
+            
+            // Quitar clase active de todos los indicadores
+            indicators.forEach(indicator => {
+                indicator.classList.remove('active');
+            });
+            
+            // Mostrar testimonio actual
+            testimonials[index].classList.add('active');
+            indicators[index].classList.add('active');
+            
+            currentTestimonial = index;
+        }
+        
+        // Configurar eventos para los indicadores
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                showTestimonial(index);
+                // Reiniciar el intervalo automático
+                clearInterval(testimonialInterval);
+                testimonialInterval = setInterval(nextTestimonial, 5000);
+            });
+        });
+        
+        function nextTestimonial() {
+            let nextIndex = currentTestimonial + 1;
+            if (nextIndex >= totalTestimonials) {
+                nextIndex = 0;
+            }
+            showTestimonial(nextIndex);
+        }
+        
+        // Iniciar rotación automática cada 5 segundos
+        let testimonialInterval = setInterval(nextTestimonial, 5000);
+        
+        // Inicializar elementos cuando la página cargue
+        window.addEventListener('load', function() {
+            createAnimatedLines();
+            createNeonParticles();
+        });
+        
+        function createNeonParticles() {
+            const servicesSection = document.querySelector('.services');
+            const particleCount = 15;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('neon-particle');
+                
+                // Posición aleatoria
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                
+                // Tamaño aleatorio
+                const size = Math.random() * 3 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Opacidad aleatoria
+                const opacity = Math.random() * 0.7 + 0.3;
+                particle.style.opacity = opacity;
+                
+                // Animación
+                const duration = Math.random() * 10 + 10;
+                const delay = Math.random() * 5;
+                
+                particle.style.animation = `float ${duration}s ${delay}s infinite linear`;
+                
+                // Añadir al DOM
+                servicesSection.appendChild(particle);
+            }
+        }
     </script>
 </body>
 </html>
