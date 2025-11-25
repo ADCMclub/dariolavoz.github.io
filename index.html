@@ -763,16 +763,22 @@
             align-items: center;
         }
         
-        .neumann-img {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 10px;
-            transition: transform 0.5s;
-        }
-        
-        .about-image:hover .neumann-img {
-            transform: scale(1.05);
-        }
+        .about-image {
+    overflow: hidden;
+    border-radius: 10px; /* mismo radio que la imagen */
+    display: inline-block;
+}
+.neumann-img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    transition: transform 0.5s;
+}
+
+.about-image:hover .neumann-img {
+    transform: scale(1.05);
+}
+
         
         .about-content {
             flex: 1;
